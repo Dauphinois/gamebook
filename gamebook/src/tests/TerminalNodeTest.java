@@ -11,8 +11,8 @@ class TerminalNodeTest {
 
 	@Test
 	void test() {
-		Node n1 = new TerminalNode("test");
-		assertEquals(n1,n1.chooseNext(null));
+		Node n1 = new TerminalNode(1,"test");
+		assertEquals(n1,n1.chooseNext());
 	}
 
 }

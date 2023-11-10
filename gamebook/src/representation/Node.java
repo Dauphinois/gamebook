@@ -1,30 +1,36 @@
 package representation;
 
-public abstract class Node {
+import jeu.INode;
+
+public abstract class Node implements INode{
 
 	private String description;
 	private int id;
-	private static int idCmt = 1;
 	
-	public Node(String description) {
+	public Node(int id, String description) {
+		this.id= id; 
 		this.description = description;
-		this.id = idCmt++;
 	}
 
+	@Override
 	public void display() {
 		System.out.println(this);
 	}
 	
-	public abstract Node chooseNext(Node next);
+	@Override
+	public abstract INode chooseNext();
 	
+	@Override
 	public String toString() {
 		return this.description;
 	}
 	
+	@Override
 	public String getDescription() {
 		return this.description;
 	}
 	
+	@Override
 	public int getId() {
 		return this.id;
 	}

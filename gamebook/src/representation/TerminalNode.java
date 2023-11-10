@@ -2,12 +2,12 @@ package representation;
 
 public class TerminalNode extends Node{
 
-	public TerminalNode(String description) {
-		super(description);
+	public TerminalNode(int id, String description) {
+		super(id,description);
 	}
 
 	@Override
-	public Node chooseNext(Node next) {
+	public Node chooseNext() {
 		return this;
 	}
 	

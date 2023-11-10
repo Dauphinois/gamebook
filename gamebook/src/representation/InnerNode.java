@@ -1,23 +1,24 @@
 package representation;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class InnerNode extends Node{
+import jeu.INode;
+
+public abstract class InnerNode extends Node{
 	
-	private ArrayList<Node> destinations;
+	private ArrayList<INode> destinations;
 	
-	public InnerNode(String description) {
-		super(description);
-		this.destinations = new ArrayList<Node>();
+	public InnerNode(int id,String description, List<INode> destinations) {
+		super(id,description);
+		this.destinations = new ArrayList<INode>(destinations);
 	}
 
 	@Override
-	public Node chooseNext(Node next) throws NotReachableNodeException{
-		for(Node n : this.destinations) {
-			if(n==next)
-				return n;
-		}
-		throw new NotReachableNodeException();
+	public abstract INode chooseNext();
+	
+	public List<INode> getDestinations(){
+		return this.destinations;
 	}
 
 }
