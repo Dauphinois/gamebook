@@ -1,4 +1,4 @@
-# Ce projet n'étant pas terminé, le scénario actuel ne sert que d'exemple pour tester le code
+# Attention, ce projet n'étant pas terminé, le scénario actuel ne sert que d'exemple pour les tests
 
 # gamebook
 
