@@ -1,4 +1,4 @@
-**<span style="color:red; font-weight:bold; font-size:20px;">Ce projet n'étant pas terminé, le scénario actuel ne sert que d'exemple pour tester le code</span>**
+# Ce projet n'étant pas terminé, le scénario actuel ne sert que d'exemple pour tester le code
 
 # gamebook
 
