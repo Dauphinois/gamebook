@@ -11,4 +11,9 @@ public class TerminalNode extends Node{
 		return this;
 	}
 	
+	@Override
+	public boolean estFin() {
+		return true;
+	}
+	
 }

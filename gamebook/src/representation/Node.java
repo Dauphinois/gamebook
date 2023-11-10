@@ -36,6 +36,11 @@ public abstract class Node implements INode{
 	}
 	
 	@Override
+	public boolean estFin() {
+		return false;
+	}
+	
+	@Override
 	public boolean equals(Object o) {
 		if(!this.getClass().equals(o.getClass()))
 			return false;

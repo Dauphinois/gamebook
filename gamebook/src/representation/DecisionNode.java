@@ -19,7 +19,6 @@ public class DecisionNode extends InnerNode{
 
 	@Override
 	public INode chooseNext() {
-		System.out.println(this.getDescription());
 		for(int i=0;i<this.getDestinations().size();++i) {
 			System.out.println((i+1)+" : "+this.textesDestinations.get(i));
 		}

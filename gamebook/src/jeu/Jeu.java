@@ -32,7 +32,13 @@ public class Jeu implements IJeu{
 	
 	public void lancer() {
 		System.out.println("Début du jeu :");
+		do {
+			currentNode.display();
+			currentNode = currentNode.chooseNext();
+		}while(!currentNode.estFin());
+		DecisionNode.stopScanner();
 		currentNode.display();
+		System.out.println("Merci d'avoir joué !");
 	}
 	
 	public static void databaseConnection() {
