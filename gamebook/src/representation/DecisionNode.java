@@ -1,51 +1,46 @@
 package representation;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
+import ihm.IHMJeu;
 import jeu.INode;
 
 public class DecisionNode extends InnerNode{
 
-	private static Scanner sc = new Scanner(System.in);
-	private static String saisie;
+	private int index;
 	private List<String> textesDestinations;
 	
-	public DecisionNode(int id, String description, List<INode> destinations, List<String> txt) {
-		super(id,description,destinations);
+	public DecisionNode(int id, String description, List<INode> destinations, List<String> txt, IHMJeu ihm) {
+		super(id,description,destinations,ihm);
 		this.textesDestinations = new ArrayList<String>(txt);
+		this.index = 0;
+		this.updateDecision();
 	}
 
 	@Override
 	public INode chooseNext() {
-		for(int i=0;i<this.getDestinations().size();++i) {
-			System.out.println((i+1)+" : "+this.textesDestinations.get(i));
-		}
-		boolean erreur = false;
-		int choix = 0;
-		do {
-			try {
-				saisie = sc.next();
-				choix = Integer.parseInt(saisie)-1;
-				if(choix<0 || choix>=this.getDestinations().size())
-					throw new NotReachableNodeException();
-				erreur = false;
-			}catch(Exception e) {
-				erreur = true;
-				System.out.println("Veuillez uniquement saisir le chiffre correspondant à votre choix");
-			}
-		}while(erreur);
-		return this.getDestinations().get(choix);
+		return this.getDestinations().get(this.index);
 	}
 	
-	//Utile dans les tests unitaires pour vérifier la dernière valeur saisie
-	public static String getSaisie() {
-		return saisie;
+	public void displayNext() {
+		if(index+1<this.getDestinations().size())
+			++index;
+		this.updateDecision();
 	}
 	
-	public static void stopScanner() {
-		sc.close();
+	public void displayPrevious() {
+		if(index-1>=0)
+			--index;
+		this.updateDecision();
+	}
+	
+	private void updateDecision() {
+		super.setDecisionText(this.textesDestinations.get(this.index));
+	}
+
+	@Override
+	public String getDecision() {
+		return this.textesDestinations.get(this.index);
 	}
 	
 }

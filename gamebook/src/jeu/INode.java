@@ -6,6 +6,7 @@ public interface INode {
 	public INode chooseNext();
 	public int getId();
 	public String getDescription();
+	public String getDecision();
 	public boolean estFin();
 	
 }

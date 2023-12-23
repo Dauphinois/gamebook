@@ -11,8 +11,11 @@ class TerminalNodeTest {
 
 	@Test
 	void test() {
-		Node n1 = new TerminalNode(1,"test");
-		assertEquals(n1,n1.chooseNext());
+		Node t = new TerminalNode(1,"noeud terminal",null);
+		assertEquals(1,t.getId());
+		assertEquals("noeud terminal",t.getDescription());
+		assertSame(t.chooseNext(),t);
+		assertTrue(t.estFin());
 	}
 
 }

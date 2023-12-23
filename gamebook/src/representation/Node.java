@@ -31,6 +31,9 @@ public abstract class Node implements INode{
 	}
 	
 	@Override
+	abstract public String getDecision();
+	
+	@Override
 	public int getId() {
 		return this.id;
 	}
